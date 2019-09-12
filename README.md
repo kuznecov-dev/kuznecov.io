@@ -1,6 +1,6 @@
-# Summary
+# Kuznecov.io
 
-Моё резюме на Vue, Express с поддержкой SSR
+Моё резюме на Vue, Express с поддержкой SSR — [kuznecov.io](https://kuznecov.io/)
 
 ## Build Setup 
 
