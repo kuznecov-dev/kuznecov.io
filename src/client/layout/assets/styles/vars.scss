@@ -1,0 +1,47 @@
+$text: #7383ab;
+$title: #7383ab;
+
+$action: #e83953;
+$action-hover: darken(#e83953, 5%);
+$action-focus: darken(#e83953, 10%);
+
+$block: red;
+$block-hover: red;
+$block-focus: red;
+
+$bg-page: #1a1f2e;
+$bg-block: #202940;
+
+$bg-element: #283556;
+$bg-element-hover: lighten(#283556, 10%);
+
+$shadow: red;
+
+$border-color: #ddd;
+$border: 1px solid $border-color;
+
+$p-block: 32px;
+$p-element: 16px;
+
+$m-block: 32px;
+$m-element: 16px;
+
+$transition: all .15s ease-out;
+
+$container-max-widths: (
+        sm: 100%,
+        sl: 100%,
+        md: 100%,
+        lg: 100%,
+        xl: 100%
+);
+
+// Точка когда включается контейнер
+$grid-breakpoints: (
+        xs: 0,
+        sm: 480px,
+        sl: 768px,
+        md: 1024px,
+        lg: 1280px,
+        xl: 1338px
+);
