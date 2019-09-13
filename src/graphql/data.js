@@ -210,8 +210,203 @@ const projects = [
     }
 ]
 
+const sections = [
+    {
+        name: 'about',
+        url: 'about',
+        title: 'Обо мне',
+        tags: [
+            {
+                title: 'Павел'
+            },
+            {
+                title: '23 года'
+            },
+            {
+                title: 'ЗОЖ'
+            },
+            {
+                title: 'Астрономия'
+            },
+            {
+                title: 'Котэ'
+            },
+            {
+                title: 'Metalcore'
+            },
+            {
+                title: 'RYTP'
+            },
+            {
+                title: 'Habr'
+            },
+            {
+                title: 'Gamedev'
+            },
+            {
+                title: 'Манга'
+            },
+            {
+                title: 'Бизнес'
+            },
+            {
+                title: 'Политика'
+            },
+            {
+                title: 'DOTA 2'
+            }
+        ]
+    },
+    {
+        name: 'exp',
+        url: 'exp',
+        title: 'Опыт',
+        tags: [
+            {
+                title: 'Кувалда.ру'
+            },
+            {
+                title: 'СПБ Дом Книги'
+            },
+            {
+                title: 'SNS'
+            },
+            {
+                title: 'Miele Shop'
+            },
+            {
+                title: 'DM Shop'
+            },
+            {
+                title: 'VIRBAC'
+            },
+            {
+                title: 'Generation S'
+            },
+            {
+                title: 'Ostec'
+            },
+            {
+                title: 'Berito'
+            },
+            {
+                title: 'WolfsBrewery'
+            },
+            {
+                title: 'Medici-Jewelry'
+            },
+            {
+                title: 'VivatBayan'
+            },
+            {
+                title: 'Flebofa'
+            },
+            {
+                title: 'Charm-Optika'
+            },
+            {
+                title: 'СВПЗ'
+            },
+            {
+                title: 'Team8'
+            },
+        ]
+    },
+    {
+        name: 'contacts',
+        url: 'contacts',
+        title: 'Контакты',
+        tags: [
+            {
+                title: 'Самара'
+            },
+            {
+                title: 'Telegram'
+            },
+            {
+                title: 'Телефон'
+            },
+            {
+                title: 'Email'
+            },
+            {
+                title: 'VK'
+            }
+        ]
+    },
+    {
+        name: 'skills',
+        url: 'skills',
+        title: 'Навыки',
+        tags: [
+            {
+                title: 'HTML'
+            },
+            {
+                title: 'CSS'
+            },
+            {
+                title: 'SCSS'
+            },
+            {
+                title: 'Bootstrap'
+            },
+            {
+                title: 'PUG'
+            },
+            {
+                title: 'ES6'
+            },
+            {
+                title: 'JS'
+            },
+            {
+                title: 'Vue'
+            },
+            {
+                title: 'Vuex'
+            },
+            {
+                title: 'JQuery'
+            },
+            {
+                title: 'Node.js'
+            },
+            {
+                title: 'Express'
+            },
+            {
+                title: 'Angular'
+            },
+            {
+                title: 'TS'
+            },
+            {
+                title: 'Photoshop'
+            },
+            {
+                title: 'Zeplin.io'
+            },
+            {
+                title: 'InVision'
+            },
+            {
+                title: 'Axios'
+            },
+
+            {
+                title: 'Three.js'
+            },
+            {
+                title: 'Git'
+            },
+        ]
+    }
+]
+
 export {
     skills,
     timeline,
-    projects
+    projects,
+    sections
 }

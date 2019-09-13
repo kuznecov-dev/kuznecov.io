@@ -1,6 +1,5 @@
-import { buildSchema } from 'graphql'
 import { makeExecutableSchema } from 'graphql-tools'
-import { skills, timeline, projects } from './data'
+import { skills, timeline, projects, sections } from './data'
 
 export const typeDefs = `
   type Skill {
@@ -24,11 +23,23 @@ export const typeDefs = `
     url: String,
     text: String,
   }
+  
+  type Tag {
+    title: String
+  }
+  
+  type Section {
+    name: String,
+    url: String,
+    title: String,
+    tags: [Tag]
+  } 
 
   type Query {
     skills: [Skill],
     timeline: [Range],
-    projects: [Project]
+    projects: [Project],
+    sections: [Section]
   } 
 `
 
@@ -36,6 +47,7 @@ export const resolvers = {
     Query: {
         skills: () => skills,
         timeline: () => timeline,
+        sections: () => sections,
         projects: () => projects
     }
 }

@@ -28,6 +28,7 @@ const config = {
             Styles: path.resolve(__dirname, '../src/client/layout/assets/styles/'),
             Components: path.resolve(__dirname, '../src/client/components/'),
             Public: path.resolve(__dirname, '../public/'),
+            Root: path.resolve(__dirname, '../'),
         }
     },
     optimization: {

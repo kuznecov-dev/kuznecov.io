@@ -27,12 +27,20 @@ export function router(app, serve) {
     let render,
         readyBundle
 
+
     renderPage(app, (renderer, ready) => {
         render = renderer
 
         if(!isProd) {
             readyBundle = ready
         }
+    })
+
+    app.post('/feedback', (req, res) => {
+        res.send({
+            success: true,
+            message: 'Тест фиктивной формы прошел успешно!'
+        })
     })
 
     app.get('*', isProd ? render : (req, res) => {

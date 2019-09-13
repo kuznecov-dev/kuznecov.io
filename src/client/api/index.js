@@ -1,9 +1,10 @@
 import axios from 'axios'
+import config from 'Root/config'
 
-let baseURL = '' 
+let baseURL = config.baseUrl
 
 if(typeof window === "undefined") {
-    baseURL = 'http://localhost:80'
+    baseURL = config.baseUrlServer
 }
 
 const api = axios.create({

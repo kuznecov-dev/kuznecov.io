@@ -106,6 +106,20 @@
                 font-size: 32px;
             }
         }
+
+        &__contacts {
+            padding-top: 38px;
+            padding-left: 10%;
+
+            @media screen and (max-width: 880px) {
+                padding-top: 0;
+                padding-left: 0;
+            }
+        }
+
+        &__form {
+
+        }
         
         &__menu {
             margin-top: 1px;

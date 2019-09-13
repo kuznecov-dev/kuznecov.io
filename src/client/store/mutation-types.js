@@ -1,5 +1,6 @@
 export const SET_SKILLS = 'SET_SKILLS'
 export const SET_TIMELINE = 'SET_TIMELINE'
 export const SET_PROJECTS = 'SET_PROJECTS'
+export const SET_SECTIONS = 'SET_SECTIONS'
 export const SET_LOAD = 'SET_LOAD'
 export const SET_SCROLLBAR = 'SET_SCROLLBAR'

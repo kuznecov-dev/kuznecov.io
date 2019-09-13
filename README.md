@@ -2,6 +2,8 @@
 
 Моё резюме на Vue, Express с поддержкой SSR — [kuznecov.io](https://kuznecov.io/)
 
+Скоро переведу проект на TypeScript
+
 ## Build Setup 
 
 ``` bash

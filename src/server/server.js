@@ -6,6 +6,7 @@ import express from 'express'
 import compression from 'compression'
 import bodyParser from 'body-parser'
 import { router } from './router'
+import config from '../../config'
 
 const resolve = file => path.resolve(__dirname, file),
     isProd = process.env.NODE_ENV === 'production'
@@ -26,14 +27,14 @@ const runServer = () => {
     router(app, serve)
 
     const httpServer = http.createServer(app)
-    httpServer.listen(80, () => {
+    httpServer.listen(config.port.http, () => {
         console.log('\x1b[33m%s\x1b[0m', `HTTP server started`)
     })
 
     if(isProd) {
-        const privateKey = fs.readFileSync('/etc/crypto/private.key', 'utf8')
-        const certificate = fs.readFileSync('/etc/crypto/certificate.crt', 'utf8')
-        const ca = fs.readFileSync('/etc/crypto/ca_bundle.crt', 'utf8')
+        const privateKey = fs.readFileSync(config.ssl.private, 'utf8')
+        const certificate = fs.readFileSync(config.ssl.certificate, 'utf8')
+        const ca = fs.readFileSync(config.ssl.ca, 'utf8')
 
         const credentials = {
             key: privateKey,
@@ -42,7 +43,7 @@ const runServer = () => {
         }
 
         const httpsServer = https.createServer(credentials, app)
-        httpsServer.listen(443, () => {
+        httpsServer.listen(config.port.https, () => {
             console.log('\x1b[33m%s\x1b[0m', `HTTPS server started`)
         })
     }

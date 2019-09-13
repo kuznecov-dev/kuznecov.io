@@ -8,6 +8,8 @@ import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
 
+
+
 export function createApp () {
 
     const store = createStore()

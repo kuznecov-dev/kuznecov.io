@@ -4,7 +4,7 @@ import base from './webpack.base'
 import ManifestPlugin from 'webpack-manifest-plugin'
 import VueSSRClientPlugin from 'vue-server-renderer/client-plugin'
 import ExtractCssChunks from "extract-css-chunks-webpack-plugin";
-import OptimizeCSSAssetsPlugin  from 'terser-webpack-plugin'
+import OptimizeCSSAssetsPlugin from 'terser-webpack-plugin'
 
 const isProd = process.env.NODE_ENV === 'production'
 const plugins = [

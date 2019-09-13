@@ -2,217 +2,35 @@
     import { mapState, mapActions } from 'vuex'
 
     export default {
+        async asyncData({ store }) {
+            return await store.dispatch('GET_DATA', `{
+                sections {
+                    name
+                    url
+                    title
+                    tags {
+                        title
+                    }
+                }
+            }`)
+        },
         data: () => ({
             sectionActive: false,
-            sections: [
-                {
-                    name: 'about',
-                    active: false,
-                    url: 'about',
-                    title: 'Обо мне',
-                    tags: [
-                        {
-                            title: 'Павел'
-                        },
-                        {
-                            title: '23 года'
-                        },
-                        {
-                            title: 'ЗОЖ'
-                        },
-                        {
-                            title: 'Астрономия'
-                        },
-                        {
-                            title: 'Котэ'
-                        },
-                        {
-                            title: 'Metalcore'
-                        },
-                        {
-                            title: 'RYTP'
-                        },
-                        {
-                            title: 'Habr'
-                        },
-                        {
-                            title: 'Gamedev'
-                        },
-                        {
-                            title: 'Манга'
-                        },
-                        {
-                            title: 'Бизнес'
-                        },
-                        {
-                            title: 'Политика'
-                        },
-                        {
-                            title: 'DOTA 2'
-                        }
-                    ]
-                },
-                {
-                    name: 'exp',
-                    active: false,
-                    url: 'exp',
-                    title: 'Опыт',
-                    tags: [
-                        {
-                            title: 'Кувалда.ру'
-                        },
-                        {
-                            title: 'СПБ Дом Книги'
-                        },
-                        {
-                            title: 'SNS'
-                        },
-                        {
-                            title: 'Miele Shop'
-                        },
-                        {
-                            title: 'DM Shop'
-                        },
-                        {
-                            title: 'VIRBAC'
-                        },
-                        {
-                            title: 'Generation S'
-                        },
-                        {
-                            title: 'Ostec'
-                        },
-                        {
-                            title: 'Berito'
-                        },
-                        {
-                            title: 'WolfsBrewery'
-                        },
-                        {
-                            title: 'Medici-Jewelry'
-                        },
-                        {
-                            title: 'VivatBayan'
-                        },
-                        {
-                            title: 'Flebofa'
-                        },
-                        {
-                            title: 'Charm-Optika'
-                        },
-                        {
-                            title: 'СВПЗ'
-                        },
-                        {
-                            title: 'Team8'
-                        },
-                    ]
-                },
-                {
-                    name: 'contacts',
-                    active: false,
-                    url: 'contacts',
-                    title: 'Контакты',
-                    tags: [
-                        {
-                            title: 'Самара'
-                        },
-                        {
-                            title: 'Telegram'
-                        },
-                        {
-                            title: 'Телефон'
-                        },
-                        {
-                            title: 'Email'
-                        },
-                        {
-                            title: 'VK'
-                        }
-                    ]
-                },
-                {
-                    name: 'skills',
-                    active: false,
-                    url: 'skills',
-                    title: 'Навыки',
-                    tags: [
-                        {
-                            title: 'HTML'
-                        },
-                        {
-                            title: 'CSS'
-                        },
-                        {
-                            title: 'SCSS'
-                        },
-                        {
-                            title: 'Bootstrap'
-                        },
-                        {
-                            title: 'PUG'
-                        },
-                        {
-                            title: 'ES6'
-                        },
-                        {
-                            title: 'JS'
-                        },
-                        {
-                            title: 'Vue'
-                        },
-                        {
-                            title: 'Vuex'
-                        },
-                        {
-                            title: 'JQuery'
-                        },
-                        {
-                            title: 'Node.js'
-                        },
-                        {
-                            title: 'Express'
-                        },
-                        {
-                            title: 'Angular'
-                        },
-                        {
-                            title: 'TS'
-                        },
-                        {
-                            title: 'Photoshop'
-                        },
-                        {
-                            title: 'Zeplin.io'
-                        },
-                        {
-                            title: 'InVision'
-                        },
-                        {
-                            title: 'Axios'
-                        },
-
-                        {
-                            title: 'Three.js'
-                        },
-                        {
-                            title: 'Git'
-                        },
-                    ]
-                }
-            ],
+            active: -1,
         }),
-        mounted() {
-
+        computed: {
+            ...mapState({
+                sections: ({ data }) => data.sections
+            })
         },
         methods: {
             ...mapActions([
                 'setLoad'
             ]),
-            goTo(section) {
+            goTo(section, index) {
                 if(!this.sectionActive) {
                     this.sectionActive = true
-                    section.active = true
+                    this.active = index
                     const element = this.$refs[section.name][0]
 
                     setTimeout(() => {
@@ -290,9 +108,9 @@
 
 <template>
     <div class="sections" :class="sectionActive ? 'sections--active': ''">
-        <div v-for="(section, index) in sections" :class="[ 'section--' + (index + 1), section.active ? 'section--active' : '' ]" :ref="section.name" @click="goTo(section)" class="section">
+        <div v-for="(section, index) in sections" :class="[ 'section--' + (index + 1), active === index ? 'section--active' : '' ]" :ref="section.name" @click="goTo(section, index)" class="section">
             <div class="section__wrapper">
-                <div class="section__title">{{ section.title }}</div>
+                <div class="section__title"><div class="section__title-text">{{ section.title }}</div><div class="section__title-text">смотреть</div></div>
             </div>
             <div class="section__tags">
                 <div v-for="(tag, index) in section.tags" class="section__tag">{{ tag.title }}</div>
@@ -340,11 +158,22 @@
 
         &:hover {
 
-
+            #{$b}__title {
+                &-text {
+                    &:nth-child(1) {
+                        display: none;
+                    }
+                    &:nth-child(2) {
+                        display: block;
+                    }
+                }
+            }
             .space {
                 opacity: 0!important;
             }
         }
+
+
 
         &__tags {
             position: absolute;
@@ -360,6 +189,8 @@
             opacity: 1;
             z-index: 3;
             transition: opacity .15s ease-out;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         &__tag {
@@ -399,9 +230,24 @@
             height: 100%;
             z-index: 1;
             transition: background-color .15s ease-out;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0) scale(1.0, 1.0);
+            transform: translateZ(0);
 
             @include mb-down(sm) {
                 padding: 16px;
+            }
+        }
+
+        @keyframes show-label {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
             }
         }
         
@@ -414,6 +260,19 @@
             transition: $transition;
             position: relative;
             z-index: 3;
+            display: inline-flex;
+
+            &-text {
+                height: 27px;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                transform-origin: center center;
+                animation: show-label .15s ease-out;
+
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
 
             @include mb-down(sm) {
                 font-size: 16px;
