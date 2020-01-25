@@ -2,7 +2,7 @@
 
 Моё резюме на Vue, Express с поддержкой SSR — [kuznecov.io](https://kuznecov.io/)
 
-Скоро переведу проект на TypeScript
+Новая версия на Vue Composition API, TS, Apollo, Nuxt — [Репозиторий](https://github.com/dev-kuznecov/kuznecov.io)
 
 ## Build Setup 
 
